@@ -48,6 +48,12 @@ int parse_obj(char* path_to_obj)
     if (!obj->edges) {
         fatal(RC_MEMORY_ERROR, "Failed to create edges array");
     }
+    obj->n_faces = 0;
+    size_t faces_length = 50;
+    obj->faces = malloc(sizeof(struct face) * faces_length);
+    if (!obj->faces) {
+        fatal(RC_MEMORY_ERROR, "Failed to create faces array");
+    }
 
     char* line = malloc(max_line_length);
     int line_number = 1;
@@ -81,7 +87,7 @@ int parse_obj(char* path_to_obj)
         } else if (prefix("l ", line)) {
             if (obj->n_edges >= edges_length) {
                 edges_length *= 2;
-                obj->edges = realloc(obj->edges, sizeof(edge) * edges_length);
+                obj->edges = realloc(obj->edges, sizeof(struct edge) * edges_length);
                 if (!obj->edges) {
                     fatal(RC_MEMORY_ERROR, "Failed to resize edges array");
                 }
@@ -91,6 +97,20 @@ int parse_obj(char* path_to_obj)
             char* v1_str = strtok(line + 2, " ");
             char* v2_str = strtok(NULL, " ");
             obj->edges[obj->n_edges++] = (edge){atoi(v1_str), atoi(v2_str)};
+        } else if (prefix("f ", line)) {
+            if (obj->n_faces >= faces_length) {
+                faces_length *= 2;
+                obj->faces = realloc(obj->faces, sizeof(struct face) * faces_length);
+                if (!obj->faces) {
+                    fatal(RC_MEMORY_ERROR, "Failed to resize faces array");
+                }
+            }
+
+            // Parse face components
+            char* v1_str = strtok(line + 2, " ");
+            char* v2_str = strtok(NULL, " ");
+            char* v3_str = strtok(NULL, " ");
+            obj->faces[obj->n_faces++] = (face){atoi(v1_str), atoi(v2_str), atoi(v3_str)};
         }
     }
 
@@ -113,5 +133,9 @@ void print_obj(obj* obj)
     printf("EDGES: %lu\n", obj->n_edges);
     for (int i = 0; i < obj->n_edges; i++) {
         printf("  %d %d\n", obj->edges[i].v1, obj->edges[i].v2);
+    }
+    printf("FACES: %lu\n", obj->n_faces);
+    for (int i = 0; i < obj->n_faces; i++) {
+        printf("  %d %d %d\n", obj->faces[i].v1, obj->faces[i].v2, obj->faces[i].v3);
     }
 }
