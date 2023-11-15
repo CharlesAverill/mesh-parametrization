@@ -16,13 +16,19 @@ int parse_obj(char* path_to_obj)
         fatal(RC_FILE_ERROR, "Failed to open obj file \"%s\"", path_to_obj);
     }
 
-    obj* obj = malloc(sizeof(obj));
+    obj* obj = malloc(sizeof(struct obj));
     obj->n_verts = 0;
     size_t verts_length = 50;
-    obj->vertices = malloc(sizeof(vertex) * verts_length);
+    obj->vertices = malloc(sizeof(struct vertex) * verts_length);
+    if (!obj->vertices) {
+        fatal(RC_MEMORY_ERROR, "Failed to create vertices array");
+    }
     obj->n_edges = 0;
     size_t edges_length = 50;
-    obj->edges = malloc(sizeof(edge) * edges_length);
+    obj->edges = malloc(sizeof(struct edge) * edges_length);
+    if (!obj->edges) {
+        fatal(RC_MEMORY_ERROR, "Failed to create edges array");
+    }
 
     char* line = malloc(max_line_length);
     while (getline(&line, &max_line_length, fp) != -1) {
@@ -38,7 +44,7 @@ int parse_obj(char* path_to_obj)
         } else if (prefix("v", line)) {
             if (obj->n_verts >= verts_length) {
                 verts_length *= 2;
-                obj->vertices = realloc(obj->vertices, sizeof(vertex) * verts_length);
+                obj->vertices = realloc(obj->vertices, sizeof(struct vertex) * verts_length);
                 if (!obj->vertices) {
                     fatal(RC_MEMORY_ERROR, "Failed to resize vertices array");
                 }
@@ -49,6 +55,21 @@ int parse_obj(char* path_to_obj)
             char* y_str = strtok(NULL, " ");
             char* z_str = strtok(NULL, " ");
             obj->vertices[obj->n_verts++] = (vertex){atof(x_str), atof(y_str), atof(z_str)};
+        } else if (prefix("l", line)) {
+            if (obj->n_edges >= edges_length) {
+                edges_length *= 2;
+                obj->edges = realloc(obj->edges, sizeof(edge) * edges_length);
+                if (!obj->edges) {
+                    fatal(RC_MEMORY_ERROR, "Failed to resize edges array");
+                }
+            }
+
+            // Parse edge components
+            char* v1_str = strtok(line + 2, " ");
+            char* v2_str = strtok(NULL, " ");
+            printf("%d %d\n", atoi(v1_str), atoi(v2_str));
+            printf("%p %p %d\n", obj->edges, obj->vertices, obj->n_edges);
+            obj->edges[obj->n_edges++] = (edge){atoi(v1_str), atoi(v2_str)};
         }
     }
 
