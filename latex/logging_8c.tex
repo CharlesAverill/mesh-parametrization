@@ -1,0 +1,92 @@
+\hypertarget{logging_8c}{}\doxysection{src/logging.c File Reference}
+\label{logging_8c}\index{src/logging.c@{src/logging.c}}
+
+
+Warnings and fatal error handling.  
+
+
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logging.\+h\char`\"{}}\newline
+Include dependency graph for logging.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{logging_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{logging_8c_a3e2e8dc1bc2143b8356e8e13798b0c42}{fatal}} (\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}} rc, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Raises a fatal error that will exit the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logging_8c_aa806cc615ff874137b9b9d4ef3fb80a2}{mp\+\_\+log}} (\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Raises a non-\/fatal logging statement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{logging_8c_a55606dfed8e2504c20fde95e3ebd2b0c}{global\+\_\+log\+\_\+level}} = \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Warnings and fatal error handling. 
+
+\begin{DoxyAuthor}{Author}
+Charles Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+08-\/Sep-\/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{logging_8c_a3e2e8dc1bc2143b8356e8e13798b0c42}\label{logging_8c_a3e2e8dc1bc2143b8356e8e13798b0c42}} 
+\index{logging.c@{logging.c}!fatal@{fatal}}
+\index{fatal@{fatal}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{fatal()}{fatal()}}
+{\footnotesize\ttfamily void fatal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}}}]{rc,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Raises a fatal error that will exit the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rc} & Return code to exit with \\
+\hline
+{\em fmt} & Format string for printed error \\
+\hline
+{\em ...} & Varargs for printed error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logging_8c_aa806cc615ff874137b9b9d4ef3fb80a2}\label{logging_8c_aa806cc615ff874137b9b9d4ef3fb80a2}} 
+\index{logging.c@{logging.c}!mp\_log@{mp\_log}}
+\index{mp\_log@{mp\_log}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{mp\_log()}{mp\_log()}}
+{\footnotesize\ttfamily void mp\+\_\+log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Raises a non-\/fatal logging statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Severity of statement \\
+\hline
+{\em fmt} & Format string for printed statement \\
+\hline
+{\em ...} & Varargs for printed statement \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{logging_8c_a55606dfed8e2504c20fde95e3ebd2b0c}\label{logging_8c_a55606dfed8e2504c20fde95e3ebd2b0c}} 
+\index{logging.c@{logging.c}!global\_log\_level@{global\_log\_level}}
+\index{global\_log\_level@{global\_log\_level}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{global\_log\_level}{global\_log\_level}}
+{\footnotesize\ttfamily int global\+\_\+log\+\_\+level = \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}}}
+

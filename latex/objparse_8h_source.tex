@@ -1,0 +1,42 @@
+\hypertarget{objparse_8h_source}{}\doxysection{objparse.\+h}
+\label{objparse_8h_source}\index{include/objparse.h@{include/objparse.h}}
+\mbox{\hyperlink{objparse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef OBJPARSE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define OBJPARSE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structvertex}{vertex}} \{}
+\DoxyCodeLine{7     \textcolor{keywordtype}{double} \mbox{\hyperlink{structvertex_a11f52ec2e920d56500baefe5a2e2bba7}{x}};}
+\DoxyCodeLine{8     \textcolor{keywordtype}{double} \mbox{\hyperlink{structvertex_a8b9f211498390a67c369fd43f3722a19}{y}};}
+\DoxyCodeLine{9     \textcolor{keywordtype}{double} \mbox{\hyperlink{structvertex_a4e4f9696a91e9bee75a4c15d8d77e064}{z}};}
+\DoxyCodeLine{10 \} \mbox{\hyperlink{objparse_8h_ad0f5923379e298b172ea5ab8ae5b0eeb}{vertex}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structedge}{edge}} \{}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} \mbox{\hyperlink{structedge_a09d56e5be1506677274fa6d231c90e20}{v1}};}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} \mbox{\hyperlink{structedge_a6d9333a6de94a820d2779b9cbd59a646}{v2}};}
+\DoxyCodeLine{15 \} \mbox{\hyperlink{objparse_8h_a62e8ac20ad6459019691857781e5a4da}{edge}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structface}{face}} \{}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} \mbox{\hyperlink{structface_a63ebf176866bc7dd3435c2588b38b4bc}{v1}};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} \mbox{\hyperlink{structface_a868976ea13729546129acf3e05b67e5e}{v2}};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{structface_a6e83c067591146e01630a60971c09565}{v3}};}
+\DoxyCodeLine{21 \} \mbox{\hyperlink{objparse_8h_abd650410644d5fed8069a6cf49ae76a1}{face}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structobj}{obj}} \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structobj_a548610f298290d5453e57bebafbe282f}{name}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structobj_ab263020893874853be3a7b999f730885}{n\_verts}};}
+\DoxyCodeLine{26     \mbox{\hyperlink{structvertex}{vertex}}* \mbox{\hyperlink{structobj_a5d026ea37f012814d14a9936276363b5}{vertices}};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structobj_a41335a2811fa6cbbeaf365f0184f43f1}{n\_edges}};}
+\DoxyCodeLine{28     \mbox{\hyperlink{structedge}{edge}}* \mbox{\hyperlink{structobj_a17613d064aa7fab60e4ce2532e5e2883}{edges}};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structobj_a6cc851580fc3116d48792974024a0229}{n\_faces}};}
+\DoxyCodeLine{30     \mbox{\hyperlink{structface}{face}}* \mbox{\hyperlink{structobj_ab061efa0815e00957a1f098f327b2b1a}{faces}};}
+\DoxyCodeLine{31 \} \mbox{\hyperlink{objparse_8h_a659461f8860a9a4eb74dc5b0864ca82a}{obj}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} \mbox{\hyperlink{objparse_8h_a22eb84f6e8247f02ea47fbdc3df913a9}{print\_obj}}(\mbox{\hyperlink{structobj}{obj}}* \mbox{\hyperlink{structobj}{obj}});}
+\DoxyCodeLine{34 \textcolor{keywordtype}{int} \mbox{\hyperlink{objparse_8h_a243c1d64585932d76227327dbbbe433a}{parse\_obj}}(\textcolor{keywordtype}{char}* path\_to\_obj);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* OBJPARSE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

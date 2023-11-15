@@ -1,0 +1,295 @@
+\hypertarget{logging_8h}{}\doxysection{include/logging.h File Reference}
+\label{logging_8h}\index{include/logging.h@{include/logging.h}}
+
+
+Function headers, ANSI defines, and enums for raising internal warnings and errors.  
+
+
+{\ttfamily \#include \char`\"{}globals.\+h\char`\"{}}\newline
+Include dependency graph for logging.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{logging_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{logging_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLogInfo}{Log\+Info}}
+\begin{DoxyCompactList}\small\item\em Maps Log\+Levels to text and color for displaying. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}~\char`\"{}\textbackslash{}033\mbox{[}1m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logging_8h_a7f026776e12ac1b5e7736c24b756085d}{ANSI\+\_\+\+RED}}~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:196m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logging_8h_a7abd01983a396871db34d8af6c2234da}{ANSI\+\_\+\+ORANGE}}~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:208m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}{ANSI\+\_\+\+YELLOW}}~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:178m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logging_8h_af77a445894f2f750d43cf2182cd29e55}{ANSI\+\_\+\+RESET}}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{logging_8h_ae0109f39fbbe4a4da9374d72d7031803}{ERROR\+\_\+\+RED}}~\mbox{\hyperlink{logging_8h_a7f026776e12ac1b5e7736c24b756085d}{ANSI\+\_\+\+RED}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}
+\item 
+\#define \mbox{\hyperlink{logging_8h_ad3710c2a6321d971d356253ec4c82547}{ERROR\+\_\+\+ORANGE}}~\mbox{\hyperlink{logging_8h_a7abd01983a396871db34d8af6c2234da}{ANSI\+\_\+\+ORANGE}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}
+\item 
+\#define \mbox{\hyperlink{logging_8h_a76992c2036c8b83702af9dab809f79f7}{ERROR\+\_\+\+YELLOW}}~\mbox{\hyperlink{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}{ANSI\+\_\+\+YELLOW}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} \{ \newline
+\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a85639df34979de4e5ff6f7b05e4de8f1}{LOG\+\_\+\+NONE}}
+, \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9ab9f002c6ffbfd511da8090213227454e}{LOG\+\_\+\+DEBUG}}
+, \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\+\_\+\+INFO}}
+, \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a8f6fe15bfe15104da6d1b360194a5400}{LOG\+\_\+\+WARNING}}
+, \newline
+\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a230506cce5c68c3bac5a821c42ed3473}{LOG\+\_\+\+ERROR}}
+, \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a065aa62cc0698301fbbe7b5448990708}{LOG\+\_\+\+CRITICAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Severity levels of logging statements emitted by the compiler. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}} \{ \newline
+\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecab834a5bb2ce6d97c2831fe3d71103c14}{RC\+\_\+\+OK}}
+, \mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecaae4a23b560d56fcf0981a9636f58edeb}{RC\+\_\+\+ERROR}}
+, \mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca616c2bf4e696b3b321995bbe1776945b}{RC\+\_\+\+FILE\+\_\+\+ERROR}}
+, \mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca07aa2a20fa529cd798c84093cfe7b32b}{RC\+\_\+\+ARG\+\_\+\+ERROR}}
+, \newline
+\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca8ad91f9a2f61be46941a7dd9145d66c2}{RC\+\_\+\+MEMORY\+\_\+\+ERROR}}
+ \}
+\begin{DoxyCompactList}\small\item\em Return codes used in different scenarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{logging_8h_a3e2e8dc1bc2143b8356e8e13798b0c42}{fatal}} (\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}} rc, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Raises a fatal error that will exit the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logging_8h_aa806cc615ff874137b9b9d4ef3fb80a2}{mp\+\_\+log}} (\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}} level, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Raises a non-\/fatal logging statement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{structLogInfo}{Log\+Info}} \mbox{\hyperlink{logging_8h_a59e149c6933a5ab3ce3d7820c755e882}{log\+Info\+Levels}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Collection of Log\+Infos for standard logging purposes. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{logging_8h_ac056197f8b96c1d78e1858c19eadcb0a}{return\+Code\+Strings}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em String representation of return codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function headers, ANSI defines, and enums for raising internal warnings and errors. 
+
+\begin{DoxyAuthor}{Author}
+Charles Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+08-\/Sep-\/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{logging_8h_a46587b83544b8e9be045bb93f644ac82}\label{logging_8h_a46587b83544b8e9be045bb93f644ac82}} 
+\index{logging.h@{logging.h}!ANSI\_BOLD@{ANSI\_BOLD}}
+\index{ANSI\_BOLD@{ANSI\_BOLD}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_BOLD}{ANSI\_BOLD}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+BOLD~\char`\"{}\textbackslash{}033\mbox{[}1m\char`\"{}}
+
+ANSI code for bold text \mbox{\Hypertarget{logging_8h_a7abd01983a396871db34d8af6c2234da}\label{logging_8h_a7abd01983a396871db34d8af6c2234da}} 
+\index{logging.h@{logging.h}!ANSI\_ORANGE@{ANSI\_ORANGE}}
+\index{ANSI\_ORANGE@{ANSI\_ORANGE}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_ORANGE}{ANSI\_ORANGE}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+ORANGE~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:208m\char`\"{}}
+
+ANSI code for orange text \mbox{\Hypertarget{logging_8h_a7f026776e12ac1b5e7736c24b756085d}\label{logging_8h_a7f026776e12ac1b5e7736c24b756085d}} 
+\index{logging.h@{logging.h}!ANSI\_RED@{ANSI\_RED}}
+\index{ANSI\_RED@{ANSI\_RED}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_RED}{ANSI\_RED}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+RED~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:196m\char`\"{}}
+
+ANSI code for red text \mbox{\Hypertarget{logging_8h_af77a445894f2f750d43cf2182cd29e55}\label{logging_8h_af77a445894f2f750d43cf2182cd29e55}} 
+\index{logging.h@{logging.h}!ANSI\_RESET@{ANSI\_RESET}}
+\index{ANSI\_RESET@{ANSI\_RESET}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_RESET}{ANSI\_RESET}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+RESET~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}}
+
+ANSI code for default text style \mbox{\Hypertarget{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}\label{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}} 
+\index{logging.h@{logging.h}!ANSI\_YELLOW@{ANSI\_YELLOW}}
+\index{ANSI\_YELLOW@{ANSI\_YELLOW}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ANSI\_YELLOW}{ANSI\_YELLOW}}
+{\footnotesize\ttfamily \#define ANSI\+\_\+\+YELLOW~\char`\"{}\textbackslash{}033\mbox{[}38\+:5\+:178m\char`\"{}}
+
+ANSI code for yellow text \mbox{\Hypertarget{logging_8h_ad3710c2a6321d971d356253ec4c82547}\label{logging_8h_ad3710c2a6321d971d356253ec4c82547}} 
+\index{logging.h@{logging.h}!ERROR\_ORANGE@{ERROR\_ORANGE}}
+\index{ERROR\_ORANGE@{ERROR\_ORANGE}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_ORANGE}{ERROR\_ORANGE}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+ORANGE~\mbox{\hyperlink{logging_8h_a7abd01983a396871db34d8af6c2234da}{ANSI\+\_\+\+ORANGE}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}}
+
+Combination of ANSI codes for orange errors \mbox{\Hypertarget{logging_8h_ae0109f39fbbe4a4da9374d72d7031803}\label{logging_8h_ae0109f39fbbe4a4da9374d72d7031803}} 
+\index{logging.h@{logging.h}!ERROR\_RED@{ERROR\_RED}}
+\index{ERROR\_RED@{ERROR\_RED}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RED}{ERROR\_RED}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+RED~\mbox{\hyperlink{logging_8h_a7f026776e12ac1b5e7736c24b756085d}{ANSI\+\_\+\+RED}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}}
+
+Combination of ANSI codes for red errors \mbox{\Hypertarget{logging_8h_a76992c2036c8b83702af9dab809f79f7}\label{logging_8h_a76992c2036c8b83702af9dab809f79f7}} 
+\index{logging.h@{logging.h}!ERROR\_YELLOW@{ERROR\_YELLOW}}
+\index{ERROR\_YELLOW@{ERROR\_YELLOW}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_YELLOW}{ERROR\_YELLOW}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+YELLOW~\mbox{\hyperlink{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}{ANSI\+\_\+\+YELLOW}} \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\+\_\+\+BOLD}}}
+
+Combination of ANSI codes for yellow errors 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}} 
+\index{logging.h@{logging.h}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}
+
+
+
+Severity levels of logging statements emitted by the compiler. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_NONE@{LOG\_NONE}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_NONE@{LOG\_NONE}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a85639df34979de4e5ff6f7b05e4de8f1}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a85639df34979de4e5ff6f7b05e4de8f1}} 
+LOG\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_DEBUG@{LOG\_DEBUG}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_DEBUG@{LOG\_DEBUG}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9ab9f002c6ffbfd511da8090213227454e}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9ab9f002c6ffbfd511da8090213227454e}} 
+LOG\+\_\+\+DEBUG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_INFO@{LOG\_INFO}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_INFO@{LOG\_INFO}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}} 
+LOG\+\_\+\+INFO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_WARNING@{LOG\_WARNING}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_WARNING@{LOG\_WARNING}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a8f6fe15bfe15104da6d1b360194a5400}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a8f6fe15bfe15104da6d1b360194a5400}} 
+LOG\+\_\+\+WARNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_ERROR@{LOG\_ERROR}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_ERROR@{LOG\_ERROR}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a230506cce5c68c3bac5a821c42ed3473}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a230506cce5c68c3bac5a821c42ed3473}} 
+LOG\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_CRITICAL@{LOG\_CRITICAL}!logging.h@{logging.h}}\index{logging.h@{logging.h}!LOG\_CRITICAL@{LOG\_CRITICAL}}}\mbox{\Hypertarget{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a065aa62cc0698301fbbe7b5448990708}\label{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a065aa62cc0698301fbbe7b5448990708}} 
+LOG\+\_\+\+CRITICAL&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}} 
+\index{logging.h@{logging.h}!ReturnCode@{ReturnCode}}
+\index{ReturnCode@{ReturnCode}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{ReturnCode}{ReturnCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}}}
+
+
+
+Return codes used in different scenarios. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC\_OK@{RC\_OK}!logging.h@{logging.h}}\index{logging.h@{logging.h}!RC\_OK@{RC\_OK}}}\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecab834a5bb2ce6d97c2831fe3d71103c14}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecab834a5bb2ce6d97c2831fe3d71103c14}} 
+RC\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC\_ERROR@{RC\_ERROR}!logging.h@{logging.h}}\index{logging.h@{logging.h}!RC\_ERROR@{RC\_ERROR}}}\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecaae4a23b560d56fcf0981a9636f58edeb}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ecaae4a23b560d56fcf0981a9636f58edeb}} 
+RC\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC\_FILE\_ERROR@{RC\_FILE\_ERROR}!logging.h@{logging.h}}\index{logging.h@{logging.h}!RC\_FILE\_ERROR@{RC\_FILE\_ERROR}}}\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca616c2bf4e696b3b321995bbe1776945b}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca616c2bf4e696b3b321995bbe1776945b}} 
+RC\+\_\+\+FILE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC\_ARG\_ERROR@{RC\_ARG\_ERROR}!logging.h@{logging.h}}\index{logging.h@{logging.h}!RC\_ARG\_ERROR@{RC\_ARG\_ERROR}}}\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca07aa2a20fa529cd798c84093cfe7b32b}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca07aa2a20fa529cd798c84093cfe7b32b}} 
+RC\+\_\+\+ARG\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RC\_MEMORY\_ERROR@{RC\_MEMORY\_ERROR}!logging.h@{logging.h}}\index{logging.h@{logging.h}!RC\_MEMORY\_ERROR@{RC\_MEMORY\_ERROR}}}\mbox{\Hypertarget{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca8ad91f9a2f61be46941a7dd9145d66c2}\label{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144eca8ad91f9a2f61be46941a7dd9145d66c2}} 
+RC\+\_\+\+MEMORY\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{logging_8h_a3e2e8dc1bc2143b8356e8e13798b0c42}\label{logging_8h_a3e2e8dc1bc2143b8356e8e13798b0c42}} 
+\index{logging.h@{logging.h}!fatal@{fatal}}
+\index{fatal@{fatal}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{fatal()}{fatal()}}
+{\footnotesize\ttfamily void fatal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logging_8h_a5a2236a3693e3930b2c9fbe1fe7144ec}{Return\+Code}}}]{rc,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Raises a fatal error that will exit the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rc} & Return code to exit with \\
+\hline
+{\em fmt} & Format string for printed error \\
+\hline
+{\em ...} & Varargs for printed error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logging_8h_aa806cc615ff874137b9b9d4ef3fb80a2}\label{logging_8h_aa806cc615ff874137b9b9d4ef3fb80a2}} 
+\index{logging.h@{logging.h}!mp\_log@{mp\_log}}
+\index{mp\_log@{mp\_log}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{mp\_log()}{mp\_log()}}
+{\footnotesize\ttfamily void mp\+\_\+log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9}{Log\+Level}}}]{level,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Raises a non-\/fatal logging statement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & Severity of statement \\
+\hline
+{\em fmt} & Format string for printed statement \\
+\hline
+{\em ...} & Varargs for printed statement \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{logging_8h_a59e149c6933a5ab3ce3d7820c755e882}\label{logging_8h_a59e149c6933a5ab3ce3d7820c755e882}} 
+\index{logging.h@{logging.h}!logInfoLevels@{logInfoLevels}}
+\index{logInfoLevels@{logInfoLevels}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{logInfoLevels}{logInfoLevels}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structLogInfo}{Log\+Info}} log\+Info\+Levels\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a85639df34979de4e5ff6f7b05e4de8f1}{LOG\_NONE}}, \textcolor{stringliteral}{"{}"{}}, \mbox{\hyperlink{logging_8h_af77a445894f2f750d43cf2182cd29e55}{ANSI\_RESET}}\},          \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9ab9f002c6ffbfd511da8090213227454e}{LOG\_DEBUG}}, \textcolor{stringliteral}{"{}[DEBUG]"{}}, \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\_BOLD}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a6e98ff471e3ce6c4ef2d75c37ee51837}{LOG\_INFO}}, \textcolor{stringliteral}{"{}[INFO]"{}}, \mbox{\hyperlink{logging_8h_a46587b83544b8e9be045bb93f644ac82}{ANSI\_BOLD}}\},     \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a8f6fe15bfe15104da6d1b360194a5400}{LOG\_WARNING}}, \textcolor{stringliteral}{"{}[WARNING]"{}}, \mbox{\hyperlink{logging_8h_af6e8b5c7b35e8bff4c581efd8019c798}{ANSI\_YELLOW}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a230506cce5c68c3bac5a821c42ed3473}{LOG\_ERROR}}, \textcolor{stringliteral}{"{}[ERROR]"{}}, \mbox{\hyperlink{logging_8h_a7abd01983a396871db34d8af6c2234da}{ANSI\_ORANGE}}\}, \{\mbox{\hyperlink{logging_8h_aca1fd1d8935433e6ba2e3918214e07f9a065aa62cc0698301fbbe7b5448990708}{LOG\_CRITICAL}}, \textcolor{stringliteral}{"{}[CRITICAL]"{}}, \mbox{\hyperlink{logging_8h_a7f026776e12ac1b5e7736c24b756085d}{ANSI\_RED}}\}\}}
+
+\end{DoxyCode}
+
+
+Collection of Log\+Infos for standard logging purposes. 
+
+\mbox{\Hypertarget{logging_8h_ac056197f8b96c1d78e1858c19eadcb0a}\label{logging_8h_ac056197f8b96c1d78e1858c19eadcb0a}} 
+\index{logging.h@{logging.h}!returnCodeStrings@{returnCodeStrings}}
+\index{returnCodeStrings@{returnCodeStrings}!logging.h@{logging.h}}
+\doxysubsubsection{\texorpdfstring{returnCodeStrings}{returnCodeStrings}}
+{\footnotesize\ttfamily const char$\ast$ return\+Code\+Strings\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}OK"{}}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}FILE ERROR"{}}, \textcolor{stringliteral}{"{}ARGUMENT ERROR"{}},}
+\DoxyCodeLine{                                          \textcolor{stringliteral}{"{}MEMORY ERROR"{}}\}}
+
+\end{DoxyCode}
+
+
+String representation of return codes. 
+

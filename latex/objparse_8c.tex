@@ -1,0 +1,68 @@
+\hypertarget{objparse_8c}{}\doxysection{src/objparse.c File Reference}
+\label{objparse_8c}\index{src/objparse.c@{src/objparse.c}}
+{\ttfamily \#include \char`\"{}objparse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logging.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for objparse.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{objparse_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{objparse_8c_a2a92fa5f1b732abd492240b124e18880}{prefix}} (const char $\ast$pre, const char $\ast$str)
+\item 
+void \mbox{\hyperlink{objparse_8c_a4d99cd2a35c38b148377b534c889825d}{strip\+\_\+whitespace}} (char $\ast$str)
+\item 
+int \mbox{\hyperlink{objparse_8c_a243c1d64585932d76227327dbbbe433a}{parse\+\_\+obj}} (char $\ast$path\+\_\+to\+\_\+obj)
+\item 
+void \mbox{\hyperlink{objparse_8c_a22eb84f6e8247f02ea47fbdc3df913a9}{print\+\_\+obj}} (\mbox{\hyperlink{structobj}{obj}} $\ast$\mbox{\hyperlink{structobj}{obj}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{objparse_8c_a1a2ec5bf716a4e546092892d4c350a8c}{max\+\_\+line\+\_\+length}} = 50
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{objparse_8c_a243c1d64585932d76227327dbbbe433a}\label{objparse_8c_a243c1d64585932d76227327dbbbe433a}} 
+\index{objparse.c@{objparse.c}!parse\_obj@{parse\_obj}}
+\index{parse\_obj@{parse\_obj}!objparse.c@{objparse.c}}
+\doxysubsubsection{\texorpdfstring{parse\_obj()}{parse\_obj()}}
+{\footnotesize\ttfamily int parse\+\_\+obj (\begin{DoxyParamCaption}\item[{char $\ast$}]{path\+\_\+to\+\_\+obj }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{objparse_8c_a2a92fa5f1b732abd492240b124e18880}\label{objparse_8c_a2a92fa5f1b732abd492240b124e18880}} 
+\index{objparse.c@{objparse.c}!prefix@{prefix}}
+\index{prefix@{prefix}!objparse.c@{objparse.c}}
+\doxysubsubsection{\texorpdfstring{prefix()}{prefix()}}
+{\footnotesize\ttfamily bool prefix (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pre,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{objparse_8c_a22eb84f6e8247f02ea47fbdc3df913a9}\label{objparse_8c_a22eb84f6e8247f02ea47fbdc3df913a9}} 
+\index{objparse.c@{objparse.c}!print\_obj@{print\_obj}}
+\index{print\_obj@{print\_obj}!objparse.c@{objparse.c}}
+\doxysubsubsection{\texorpdfstring{print\_obj()}{print\_obj()}}
+{\footnotesize\ttfamily void print\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structobj}{obj}} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{objparse_8c_a4d99cd2a35c38b148377b534c889825d}\label{objparse_8c_a4d99cd2a35c38b148377b534c889825d}} 
+\index{objparse.c@{objparse.c}!strip\_whitespace@{strip\_whitespace}}
+\index{strip\_whitespace@{strip\_whitespace}!objparse.c@{objparse.c}}
+\doxysubsubsection{\texorpdfstring{strip\_whitespace()}{strip\_whitespace()}}
+{\footnotesize\ttfamily void strip\+\_\+whitespace (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{objparse_8c_a1a2ec5bf716a4e546092892d4c350a8c}\label{objparse_8c_a1a2ec5bf716a4e546092892d4c350a8c}} 
+\index{objparse.c@{objparse.c}!max\_line\_length@{max\_line\_length}}
+\index{max\_line\_length@{max\_line\_length}!objparse.c@{objparse.c}}
+\doxysubsubsection{\texorpdfstring{max\_line\_length}{max\_line\_length}}
+{\footnotesize\ttfamily size\+\_\+t max\+\_\+line\+\_\+length = 50}
+
