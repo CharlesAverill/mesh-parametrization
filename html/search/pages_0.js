@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['c_5fproject_0',['C_Project',['../index.html',1,'']]]
+  ['mesh_20parametrization_0',['Mesh Parametrization',['../index.html',1,'']]]
 ];
