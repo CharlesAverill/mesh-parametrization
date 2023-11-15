@@ -21,13 +21,13 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structvertex}{vertex}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents a 3-\/dimensional vertex. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structedge}{edge}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represents an edge between two vertices, members are indices into a vertex\mbox{[}\mbox{]}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structface}{face}}
-\item 
+\begin{DoxyCompactList}\small\item\em Represens a face consisting of three vertices, members are indices into a vertex\mbox{[}\mbox{]}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structobj}{obj}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Contains 3-\/dimensional object data read in from an .OBJ file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -82,9 +82,26 @@ int \mbox{\hyperlink{objparse_8h_a243c1d64585932d76227327dbbbe433a}{parse\+\_\+o
 \doxysubsubsection{\texorpdfstring{parse\_obj()}{parse\_obj()}}
 {\footnotesize\ttfamily int parse\+\_\+obj (\begin{DoxyParamCaption}\item[{char $\ast$}]{path\+\_\+to\+\_\+obj }\end{DoxyParamCaption})}
 
+Parses an .obj file into an {\ttfamily obj} struct
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+\_\+to\+\_\+obj} & Path to .obj file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succeeded 
+\end{DoxyReturn}
 \mbox{\Hypertarget{objparse_8h_a22eb84f6e8247f02ea47fbdc3df913a9}\label{objparse_8h_a22eb84f6e8247f02ea47fbdc3df913a9}} 
 \index{objparse.h@{objparse.h}!print\_obj@{print\_obj}}
 \index{print\_obj@{print\_obj}!objparse.h@{objparse.h}}
 \doxysubsubsection{\texorpdfstring{print\_obj()}{print\_obj()}}
 {\footnotesize\ttfamily void print\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structobj}{obj}} $\ast$}]{obj }\end{DoxyParamCaption})}
 
+Prints out an object to stdout
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & {\ttfamily obj} to print \\
+\hline
+\end{DoxyParams}

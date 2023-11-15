@@ -39,24 +39,60 @@ size\+\_\+t \mbox{\hyperlink{objparse_8c_a1a2ec5bf716a4e546092892d4c350a8c}{max\
 \doxysubsubsection{\texorpdfstring{parse\_obj()}{parse\_obj()}}
 {\footnotesize\ttfamily int parse\+\_\+obj (\begin{DoxyParamCaption}\item[{char $\ast$}]{path\+\_\+to\+\_\+obj }\end{DoxyParamCaption})}
 
+Parses an .obj file into an {\ttfamily obj} struct
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+\_\+to\+\_\+obj} & Path to .obj file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succeeded 
+\end{DoxyReturn}
 \mbox{\Hypertarget{objparse_8c_a2a92fa5f1b732abd492240b124e18880}\label{objparse_8c_a2a92fa5f1b732abd492240b124e18880}} 
 \index{objparse.c@{objparse.c}!prefix@{prefix}}
 \index{prefix@{prefix}!objparse.c@{objparse.c}}
 \doxysubsubsection{\texorpdfstring{prefix()}{prefix()}}
 {\footnotesize\ttfamily bool prefix (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pre,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
 
+Tests whether a string starts with a prefix
+
+
+\begin{DoxyParams}{Parameters}
+{\em pre} & Prefix to check \\
+\hline
+{\em str} & String to check in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if str starts with pre, otherwise {\ttfamily false} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{objparse_8c_a22eb84f6e8247f02ea47fbdc3df913a9}\label{objparse_8c_a22eb84f6e8247f02ea47fbdc3df913a9}} 
 \index{objparse.c@{objparse.c}!print\_obj@{print\_obj}}
 \index{print\_obj@{print\_obj}!objparse.c@{objparse.c}}
 \doxysubsubsection{\texorpdfstring{print\_obj()}{print\_obj()}}
 {\footnotesize\ttfamily void print\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structobj}{obj}} $\ast$}]{obj }\end{DoxyParamCaption})}
 
+Prints out an object to stdout
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & {\ttfamily obj} to print \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{objparse_8c_a4d99cd2a35c38b148377b534c889825d}\label{objparse_8c_a4d99cd2a35c38b148377b534c889825d}} 
 \index{objparse.c@{objparse.c}!strip\_whitespace@{strip\_whitespace}}
 \index{strip\_whitespace@{strip\_whitespace}!objparse.c@{objparse.c}}
 \doxysubsubsection{\texorpdfstring{strip\_whitespace()}{strip\_whitespace()}}
 {\footnotesize\ttfamily void strip\+\_\+whitespace (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
 
+Strips whitespace from the start and end of a string
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to strip \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Variable Documentation}

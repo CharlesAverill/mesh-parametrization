@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project Template: src/objparse.c File Reference</title>
+<title>Mesh Parametrization: src/objparse.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">C Project Template<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">Mesh Parametrization<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Documentation for my friendly C Project Template</div>
+   <div id="projectbrief">A mesh parametrization tool</div>
   </td>
  </tr>
  </tbody>
@@ -128,6 +128,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Parses an .obj file into an <code>obj</code> struct</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path_to_obj</td><td>Path to .obj file</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if succeeded </dd></dl>
 
 </div>
 </div>
@@ -156,6 +164,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Tests whether a string starts with a prefix</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pre</td><td>Prefix to check </td></tr>
+    <tr><td class="paramname">str</td><td>String to check in</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if str starts with pre, otherwise <code>false</code> </dd></dl>
 
 </div>
 </div>
@@ -174,6 +191,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Prints out an object to stdout</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td><code>obj</code> to print </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -192,6 +216,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Strips whitespace from the start and end of a string</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String to strip </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
