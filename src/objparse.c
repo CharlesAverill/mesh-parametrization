@@ -8,8 +8,21 @@
 
 size_t max_line_length = 50;
 
+/** 
+ * Tests whether a string starts with a prefix
+ * 
+ * @param pre Prefix to check
+ * @param str String to check in
+ * 
+ * @return `true` if str starts with pre, otherwise `false`
+ */
 bool prefix(const char* pre, const char* str) { return strncmp(pre, str, strlen(pre)) == 0; }
 
+/**
+ * Strips whitespace from the start and end of a string
+ * 
+ * @param str String to strip
+ */
 void strip_whitespace(char* str)
 {
     size_t start = 0;
@@ -28,6 +41,13 @@ void strip_whitespace(char* str)
     str[end - start + 1] = '\0';
 }
 
+/**
+ * Parses an .obj file into an `obj` struct
+ * 
+ * @param path_to_obj Path to .obj file
+ * 
+ * @return 0 if succeeded
+ */
 int parse_obj(char* path_to_obj)
 {
     FILE* fp = fopen(path_to_obj, "r");
@@ -121,6 +141,11 @@ int parse_obj(char* path_to_obj)
     return 0;
 }
 
+/**
+ * Prints out an object to stdout
+ * 
+ * @param obj `obj` to print
+ */
 void print_obj(obj* obj)
 {
     printf("NAME: %s\n", obj->name);
