@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "arguments.h"
+#include "objparse.h"
 
 /**
  * @brief Program entrypoint
@@ -22,8 +23,7 @@ int main(int argc, char* argv[])
 
     parse_args(args, argc, argv);
 
-    printf("Hello World!\n");
-    printf("%s\n", args->echo);
+    parse_obj(args->obj_path);
 
     return 0;
 }

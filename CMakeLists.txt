@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(helloworld LANGUAGES C VERSION "0.1.0")
+project(mesh-parametrization LANGUAGES C VERSION "0.1.0")
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)

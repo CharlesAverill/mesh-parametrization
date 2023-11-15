@@ -1,6 +1,6 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-EXECUTABLE_PATH="$SCRIPT_DIR/bin/helloworld"
+EXECUTABLE_PATH="$SCRIPT_DIR/bin/mesh-parametrization"
 
 ${SCRIPT_DIR}/compile.sh
 if [ $? -ne 0 ]; then

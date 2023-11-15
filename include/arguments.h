@@ -8,9 +8,8 @@
  * @brief Structure containing command line arguments
  */
 typedef struct Arguments {
-    /**This will be printed after "Hello World"*/
-    char* echo;
-    // Add your arguments here
+    /**Path to .obj file to read from*/
+    char* obj_path;
 } Arguments;
 
 void parse_args(Arguments* args, int argc, char* argv[]);

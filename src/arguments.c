@@ -4,18 +4,18 @@
 #include "info.h"
 
 const char* argp_program_version = PROJECT_NAME_AND_VERS;
-const char* argp_program_bug_address = "bug_email@example.com";
-static char doc[] = "A program to print out the words \"Hello World!\"";
-static char args_doc[] = "PROGRAM";
+const char* argp_program_bug_address = "";
+static char doc[] = "A program to parametrize .OBJ meshes";
+static char args_doc[] = "OBJ";
 
 static struct argp_option options[] = {
-    {
-        "echo",
-        'e',
-        "ECHO_STATEMENT",
-        0,
-        "Will print ECHO_STATEMENT on a separate line after the \"Hello World!\" message",
-    },
+    /*{
+		"obj",
+		'o',
+		"PATH_TO_OBJ_FILE",
+		0,
+		"The path to the .obj file to parametrize",
+	},*/
     {0},
 };
 
@@ -24,18 +24,19 @@ error_t parse_opt(int key, char* arg, struct argp_state* state)
     Arguments* arguments = state->input;
 
     switch (key) {
-    case 'e':
-        arguments->echo = arg;
+    case 'o':
+        arguments->obj_path = arg;
         break;
     case ARGP_KEY_ARG:
         // Check for too many arguments
-        if (state->arg_num >= 0) {
+        if (state->arg_num >= 1) {
             argp_usage(state);
         }
+        arguments->obj_path = arg;
         break;
     case ARGP_KEY_END:
         // Check for not enough arguments
-        if (state->arg_num < 0) {
+        if (state->arg_num < 1) {
             argp_usage(state);
         }
         break;
@@ -58,7 +59,7 @@ static struct argp argp = {options, parse_opt, args_doc, doc, 0, 0, 0};
 void parse_args(Arguments* args, int argc, char* argv[])
 {
     // Set defaults here
-    args->echo = "";
+    args->obj_path = "objs/cube.obj";
 
     argp_parse(&argp, argc, argv, 0, 0, args);
 }
