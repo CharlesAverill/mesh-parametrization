@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "arguments.h"
+#include "globals.h"
 #include "objparse.h"
 
 /**
@@ -22,6 +23,8 @@ int main(int argc, char* argv[])
     }
 
     parse_args(args, argc, argv);
+
+    global_log_level = args->log_level;
 
     parse_obj(args->obj_path);
 

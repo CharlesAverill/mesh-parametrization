@@ -8,6 +8,8 @@
 #ifndef LOGGING_H
 #define LOGGING_H
 
+#include "globals.h"
+
 /**ANSI code for bold text*/
 #define ANSI_BOLD "\033[1m"
 /**ANSI code for red text*/

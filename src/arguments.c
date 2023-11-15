@@ -9,13 +9,8 @@ static char doc[] = "A program to parametrize .OBJ meshes";
 static char args_doc[] = "OBJ";
 
 static struct argp_option options[] = {
-    /*{
-		"obj",
-		'o',
-		"PATH_TO_OBJ_FILE",
-		0,
-		"The path to the .obj file to parametrize",
-	},*/
+    {"logging", 'l', "LOG_LEVEL", 0,
+     "The logging level during execution (DEBUG, INFO, WARNING, ERROR, CRITICAL)"},
     {0},
 };
 
@@ -24,8 +19,20 @@ error_t parse_opt(int key, char* arg, struct argp_state* state)
     Arguments* arguments = state->input;
 
     switch (key) {
-    case 'o':
-        arguments->obj_path = arg;
+    case 'l':
+        if (strcmp(arg, "DEBUG") == 0) {
+            arguments->log_level = LOG_DEBUG;
+        } else if (strcmp(arg, "INFO") == 0) {
+            arguments->log_level = LOG_INFO;
+        } else if (strcmp(arg, "WARNING") == 0) {
+            arguments->log_level = LOG_WARNING;
+        } else if (strcmp(arg, "ERROR") == 0) {
+            arguments->log_level = LOG_ERROR;
+        } else if (strcmp(arg, "CRITICAL") == 0) {
+            arguments->log_level = LOG_CRITICAL;
+        } else {
+            argp_usage(state);
+        }
         break;
     case ARGP_KEY_ARG:
         // Check for too many arguments
@@ -60,6 +67,7 @@ void parse_args(Arguments* args, int argc, char* argv[])
 {
     // Set defaults here
     args->obj_path = "objs/cube.obj";
+    args->log_level = LOG_INFO;
 
     argp_parse(&argp, argc, argv, 0, 0, args);
 }

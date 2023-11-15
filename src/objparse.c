@@ -1,6 +1,7 @@
 #include "objparse.h"
 #include "logging.h"
 
+#include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -8,6 +9,24 @@
 size_t max_line_length = 50;
 
 bool prefix(const char* pre, const char* str) { return strncmp(pre, str, strlen(pre)) == 0; }
+
+void strip_whitespace(char* str)
+{
+    size_t start = 0;
+    size_t end = strlen(str) - 1;
+
+    while (start <= end && isspace((unsigned char)str[start])) {
+        start++;
+    }
+
+    while (end > start && isspace((unsigned char)str[end])) {
+        end--;
+    }
+
+    memmove(str, str + start, end - start + 1);
+
+    str[end - start + 1] = '\0';
+}
 
 int parse_obj(char* path_to_obj)
 {
@@ -31,17 +50,21 @@ int parse_obj(char* path_to_obj)
     }
 
     char* line = malloc(max_line_length);
+    int line_number = 1;
     while (getline(&line, &max_line_length, fp) != -1) {
+        strip_whitespace(line);
+
+        mp_log(LOG_DEBUG, "Line %d: %s", line_number++, line);
         // Ignore comments, materials
         if (line[0] == '#' || prefix("mtllib", line)) {
             continue;
         }
 
-        else if (prefix("o", line)) {
+        if (prefix("o ", line)) {
             // Parse object name
             obj->name = malloc(strlen(line) - 1);
             strcpy(obj->name, line + 2);
-        } else if (prefix("v", line)) {
+        } else if (prefix("v ", line)) {
             if (obj->n_verts >= verts_length) {
                 verts_length *= 2;
                 obj->vertices = realloc(obj->vertices, sizeof(struct vertex) * verts_length);
@@ -55,7 +78,7 @@ int parse_obj(char* path_to_obj)
             char* y_str = strtok(NULL, " ");
             char* z_str = strtok(NULL, " ");
             obj->vertices[obj->n_verts++] = (vertex){atof(x_str), atof(y_str), atof(z_str)};
-        } else if (prefix("l", line)) {
+        } else if (prefix("l ", line)) {
             if (obj->n_edges >= edges_length) {
                 edges_length *= 2;
                 obj->edges = realloc(obj->edges, sizeof(edge) * edges_length);
@@ -67,8 +90,6 @@ int parse_obj(char* path_to_obj)
             // Parse edge components
             char* v1_str = strtok(line + 2, " ");
             char* v2_str = strtok(NULL, " ");
-            printf("%d %d\n", atoi(v1_str), atoi(v2_str));
-            printf("%p %p %d\n", obj->edges, obj->vertices, obj->n_edges);
             obj->edges[obj->n_edges++] = (edge){atoi(v1_str), atoi(v2_str)};
         }
     }

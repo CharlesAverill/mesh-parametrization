@@ -11,6 +11,8 @@
 #include "arguments.h"
 #include "logging.h"
 
+int global_log_level = LOG_INFO;
+
 /**
  * @brief Raises a fatal error that will exit the program
  * 
@@ -42,6 +44,9 @@ void fatal(ReturnCode rc, const char* fmt, ...)
  */
 void mp_log(LogLevel level, const char* fmt, ...)
 {
+    if (level < global_log_level)
+        return;
+
     va_list func_args;
     FILE* output_stream = stdout;
 
