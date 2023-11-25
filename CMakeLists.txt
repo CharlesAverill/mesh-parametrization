@@ -18,3 +18,5 @@ include_directories(build)
 include_directories(include)
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
+
+target_link_libraries(${PROJECT_NAME} m)
