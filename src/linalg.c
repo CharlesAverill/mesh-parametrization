@@ -1,16 +1,23 @@
 #include "linalg.h"
+#include<stdlib.h>
 #include<math.h>
 
-void create_squareMatrix(squareMatrix* mat, int size) 
+squareMatrix* create_squareMatrix(int size) 
 {
+    squareMatrix* mat = malloc(sizeof(struct squareMatrix));
     mat->size = size;
     mat->data = calloc(size*size, sizeof(double));
+
+    return mat;
 }
 
-void create_vector(vector* vec, int size) 
+vector* create_vector(int size) 
 {
+    vector* vec = malloc(sizeof(struct vector));
     vec->size = size;
     vec->data = calloc(size, sizeof(double));
+    
+    return vec;
 }
 
 double cross2(vector* a, vector* b) 

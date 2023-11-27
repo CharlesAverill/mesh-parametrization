@@ -3,28 +3,27 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdio.h>
 
-squareMatrix build_adjacency_matrix(obj* obj) 
+squareMatrix* build_adjacency_matrix(const obj* obj) 
 {
     size_t size = obj->n_verts;
-    squareMatrix* adajacency; 
+    squareMatrix* adjacency= create_squareMatrix(size);
 
-    create_squareMatrix(adajacency, size);
-
-    if (obj->n_edges == 0)
-        build_edges(obj);
+    //if (obj->n_edges == 0)
+        //build_edges(obj);
 
     for (size_t i = 0; i < obj->n_edges; i++)
     {
         edge e = obj->edges[i];
-        if (adajacency->data[e.v1 * size + e.v2] == 0)
+        if (adjacency->data[e.v1 * size + e.v2] == 0)
         {
-            adajacency->data[e.v1 * size + e.v2] = 1;
-            adajacency->data[e.v2 * size + e.v1] = 1;
+            adjacency->data[e.v1 * size + e.v2] = 1;
+            adjacency->data[e.v2 * size + e.v1] = 1;
         }
     }
     
-    return *adajacency;
+    return adjacency;
 }
 
 void build_edges(obj* obj) {
@@ -46,19 +45,17 @@ void build_edges(obj* obj) {
     {
         bool seen = false;
         for (size_t j = 0; j < n_edges; j++)
+        {
             if (halfEdges[i].v1 == edges[j].v2 && halfEdges[i].v2 == edges[j].v1) 
             {
                 seen = true;
                 break;
             }
+        }
 
-        if (seen)
-            break;
-        
-        edges[n_edges++] = halfEdges[i];
+        if (!seen)
+            edges[n_edges++] = halfEdges[i];
     }
-
-    free(halfEdges);
     free(obj->edges);
     
     obj->edges = edges;
@@ -79,34 +76,39 @@ void find_boundary_edges(edgeList* b_edges, face* faces, size_t n_faces)
     size_t size = n_faces;
     edge* boundaryEdges = malloc(n_faces * sizeof(edge));
     size_t n_boundaryEdges = 0;
+    bool seen[3*n_faces];
+
     for (size_t i = 0; i < 3*n_faces; i++)
     {
-        bool seen = false;
+        seen[i] = false;
+    }
+    
+    for (size_t i = 0; i < 3*n_faces; i++)
+    {
         for (size_t j = 0; j < 3*n_faces; j++)
             if (i == j)
                 continue;
-            else if (halfEdges[i].v1 == boundaryEdges[j].v2 && halfEdges[i].v2 == boundaryEdges[j].v1) 
+            else if (halfEdges[i].v1 == halfEdges[j].v2 && halfEdges[i].v2 == halfEdges[j].v1) 
             {
-                seen = true;
+                seen[i] = seen[j] = true;
                 break;
             }
 
-        if (seen)
-            break;
-        
-        if (n_boundaryEdges + 1 > size) 
+        if (!seen[i])
         {
-            size *= 2;
-            boundaryEdges = realloc(boundaryEdges, size * sizeof(edge));
-            if(!boundaryEdges) {
-                    fatal(RC_MEMORY_ERROR, "Failed to resize faces array");
+            if (n_boundaryEdges + 1 > size) 
+            {
+                size *= 2;
+                boundaryEdges = realloc(boundaryEdges, size * sizeof(edge));
+                if(!boundaryEdges) {
+                        fatal(RC_MEMORY_ERROR, "Failed to resize faces array");
+                }
             }
+
+            boundaryEdges[n_boundaryEdges++] = halfEdges[i];
         }
 
-        boundaryEdges[n_boundaryEdges++] = halfEdges[i];
     }
-    
-    free(halfEdges);
 
     b_edges->edges = boundaryEdges;
     b_edges->n_edges = n_boundaryEdges;
@@ -120,18 +122,18 @@ bool any(bool* array, size_t size)
         flag |= array[i];
     }
     
+    return flag;
 }
 
-void find_boundary_loop(int* boundary, size_t* b_size, obj* obj)
+int* find_boundary_loop(size_t* b_size, obj* obj)
 {
-    edgeList* boundaryEdges;
+    edgeList* boundaryEdges = malloc(sizeof(struct edgeList));
     find_boundary_edges(boundaryEdges, obj->faces, obj->n_faces);
     edge* bE = boundaryEdges->edges;
     size_t size = boundaryEdges->n_edges;
     bool unseen[size];
-    int greatest_loop[2*size];
+    int* greatest_loop = malloc(2*size*sizeof(int));
     int greatest_size = 0;
-
 
     for (size_t i = 0; i < size; i++)
     {
@@ -157,6 +159,7 @@ void find_boundary_loop(int* boundary, size_t* b_size, obj* obj)
         int head = current_edge.v2;
         unseen[current_edge_index] = false;
         loop[loop_size++] = start;
+        int n_loops = 0;
 
         while(head != start) 
         {
@@ -178,6 +181,7 @@ void find_boundary_loop(int* boundary, size_t* b_size, obj* obj)
                 }
             }
         }
+        n_loops++;
 
         if (loop_size > greatest_size)
         {
@@ -186,6 +190,6 @@ void find_boundary_loop(int* boundary, size_t* b_size, obj* obj)
         }
     }
 
-    boundary = greatest_loop;
     *b_size = greatest_size;    
+    return greatest_loop;
 }

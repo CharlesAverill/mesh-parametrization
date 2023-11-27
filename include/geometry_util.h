@@ -4,9 +4,9 @@
 #include "linalg.h"
 #include "objparse.h"
 
-squareMatrix build_adjacency_matrix(obj* obj);
+squareMatrix* build_adjacency_matrix(const obj* obj);
 
-void find_boundary_loop(int* boundary, size_t* b_size, obj* obj);
+int* find_boundary_loop(size_t* b_size, obj* obj);
 
 void build_edges(obj* obj);
 

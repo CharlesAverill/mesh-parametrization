@@ -22,8 +22,8 @@ typedef struct vector {
     size_t size;
 } vector;
 
-void create_squareMatrix(squareMatrix* mat, int size);
-void create_vector(vector* vec, int size);
+squareMatrix* create_squareMatrix(int size);
+vector* create_vector(int size);
 
 double cross2(vector* a, vector* b);
 double norm(vector* vec);

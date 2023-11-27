@@ -48,7 +48,7 @@ void strip_whitespace(char* str)
  * 
  * @return 0 if succeeded
  */
-int parse_obj(char* path_to_obj)
+obj* parse_obj(char* path_to_obj)
 {
     FILE* fp = fopen(path_to_obj, "r");
     if (!fp) {
@@ -136,9 +136,10 @@ int parse_obj(char* path_to_obj)
 
     fclose(fp);
 
-    print_obj(obj);
+    //print_obj(obj);
+    //printf("%ld, %ld, %ld\n", obj->n_verts,obj->n_edges, obj->n_faces);
 
-    return 0;
+    return obj;
 }
 
 /**

@@ -54,6 +54,6 @@ typedef struct obj {
 } obj;
 
 void print_obj(obj* obj);
-int parse_obj(char* path_to_obj);
+obj* parse_obj(char* path_to_obj);
 
 #endif /* OBJPARSE_H */
